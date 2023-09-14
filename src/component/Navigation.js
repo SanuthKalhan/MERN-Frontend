@@ -43,7 +43,6 @@ function Navigation() {
         <Navbar.Brand href="#home">Quick Mart</Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link href="/Home.js">Home</Nav.Link>
-          <Nav.Link href="#items">Items</Nav.Link>
         </Nav>
         <Nav className="ml-auto">
         {!user && (

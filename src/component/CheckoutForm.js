@@ -81,7 +81,12 @@ function CheckoutForm() {
                 </Row>
                 <label htmlFor="card-element">Card</label>
                 <CardElement id="card-element" />
-                <Button className="mt-3" type="submit" disabled={user.cart.count <= 0 || paying || isSuccess}>
+                <Button
+                    className="mt-3"
+                    type="submit"
+                    disabled={user.cart.count <= 0 || paying || isSuccess}
+                    style={{ backgroundColor: '#00e339ca' }} // Change the background color here
+                >
                     {paying ? "Processing..." : "Pay"}
                 </Button>
             </Form>
