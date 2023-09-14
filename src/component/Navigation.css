@@ -10,4 +10,48 @@
     font-weight: bold; 
 }
 
+
+.navbar-custom {
+  background-color: #00e339ca; 
+}
+
+.nav-link .fas.fa-bell {
+  color: #00e339ca;
+}
+
+
+.dropdown-menu {
+  background-color: #000000ca; 
+}
+
+.dropdown-item {
+  color: #00e339ca; 
+}
+
+
+.dropdown-divider {
+  border-top: 2px solid #00e339ca; 
+}
+
+
+
+.logout-btn {
+  background-color: #e74c3c; 
+  color: #fff; 
+  border: none;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  padding: 10px 20px; 
+  border-radius: 5px; 
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #c0392b; 
+}
+
+.nav-link .fas.fa-shopping-cart{
+  color: #00e339ca; 
+}
   
