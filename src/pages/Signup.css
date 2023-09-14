@@ -1,0 +1,103 @@
+.signup__page--container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    margin-left: 34%;
+
+  }
+
+
+  
+.signup__from--container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 5px;
+    
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+
+  .signup__from--container h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #000000ca;
+    text-shadow: 2px 6px 10px rgba(0, 0, 0, 0.2);
+    font-family:sans-serif;
+    font-weight:bold; 
+  }
+  
+  .app-BG {
+    background-image: url('./BG.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 93vh;
+    min-width :95vw;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+  }
+  
+  .signup__from--container form {
+    width: 100%;
+    text-align: left;
+  }
+  
+  .signup__from--container .form-group {
+    margin-top: 1.5rem;
+  }
+  
+  .signup__from--container label {
+    font-weight: 400;
+  }
+  
+  .signup__from--container input[type="email"],
+  .signup__from--container input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    border: none;
+    box-shadow: 0px 5px 13px rgba(0, 0, 0, 0.3);
+  }
+  
+
+  .signup__from--container button {
+    background-color: #00e339ca;
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    justify-content: center;
+    display: block; 
+    margin: 0 auto; 
+    text-align: center;
+    margin-bottom: 1.5rem;
+    box-shadow: 5px 15px 24px rgba(0, 0, 0, 0.2);
+
+  }
+  
+  .signup__from--container button:hover {
+    background-color: #000000;
+  }
+  
+
+  .signup__from--container p a {
+    color: #007bff;
+  }
+  
+  .signup__from--container p a:hover {
+    text-decoration: underline;
+  }
+
