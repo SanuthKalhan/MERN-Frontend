@@ -6,14 +6,14 @@ import { useSignupMutation } from '../services/appApi';
 
 
 function Signup() {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [signup, { error, isLoading, isError }] = useSignupMutation();
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    signup({ email, password, confirmPassword });
+    signup({ name,email, password });
   };
 
   return (
@@ -26,7 +26,17 @@ function Signup() {
                 <h1>Sign Up</h1>
                 {isError && <Alert variant="danger">{error.data}</Alert>}
                 <Form.Group>
-                    <Form.Label>Email Address</Form.Label>
+                    <Form.Label>User Type</Form.Label>
+                    <Form.Control
+                    type="text"
+                    placeholder="Enter User Type"
+                    value={name}
+                    required
+                    onChange={(e) => setName(e.target.value)}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Email</Form.Label>
                     <Form.Control
                     type="email"
                     placeholder="Enter Email"
@@ -43,16 +53,6 @@ function Signup() {
                     value={password}
                     required
                     onChange={(e) => setPassword(e.target.value)}
-                    />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control
-                    type="password"
-                    placeholder="Confirm Password"
-                    value={confirmPassword}
-                    required
-                    onChange={(e) => setConfirmPassword(e.target.value)}
                     />
                 </Form.Group>
                 <Form.Group>
