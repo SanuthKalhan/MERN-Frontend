@@ -44,7 +44,6 @@ function Navigation() {
         <Nav className="me-auto">
           <Nav.Link href="/Home.js">Home</Nav.Link>
           <Nav.Link href="#items">Items</Nav.Link>
-          <Nav.Link href="/CartPage">My Cart</Nav.Link>
         </Nav>
         <Nav className="ml-auto">
         {!user && (
@@ -94,9 +93,9 @@ function Navigation() {
               )}
 
               <NavDropdown.Divider />
-                <Button variant="danger" onClick={handleLogout} className="logout-btn">
+                <center><Button variant="danger" onClick={handleLogout} className="logout-btn">
                     Logout
-                </Button>
+                </Button></center>
               </NavDropdown>
           </>
         )}
