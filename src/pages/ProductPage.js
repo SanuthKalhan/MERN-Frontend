@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../axios";
 import React, { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
@@ -36,7 +36,18 @@ function ProductPage() {
         1024: { items: 3 },
     };
 
-    const images = product.pictures.map((picture) => <img className="product__carousel--image" src={picture.url} onDragStart={handleDragStart} />);
+    const images = product.pictures.map((picture, index) => (
+        <img
+          key={index}
+          className="product__carousel--image"
+          src={picture.url}
+          onDragStart={handleDragStart}
+          width={700} 
+          height={500} 
+          alt={`Product ${index + 1}`}
+        />
+      ));
+      
 
     let similarProducts = [];
     if (similar) {
@@ -48,49 +59,63 @@ function ProductPage() {
     }
 
     return (
-        <Container className="pt-4" style={{ position: "relative" }}>
+        <Container className="product-container">
             <Row>
-                <Col lg={6}>
+                <Col lg={6} className="product-carousel">
                     <AliceCarousel mouseTracking items={images} controlsStrategy="alternate" />
                 </Col>
-                <Col lg={6} className="pt-4">
-                    <h1>{product.name}</h1>
-                    <p>
+                <Col lg={6} className="product-details">
+                    <h1 className="product-title">{product.name}</h1>
+                    <p className="product-category">
                         <Badge bg="primary">{product.category}</Badge>
                     </p>
-                    <p className="product__price">${product.price}</p>
-                    <p style={{ textAlign: "justify" }} className="py-3">
+                    <p className="product-price">Rs{product.price}</p>
+                    <p className="product-description">
                         <strong>Description:</strong> {product.description}
                     </p>
                     {user && !user.isAdmin && (
-                        <ButtonGroup style={{ width: "90%" }}>
-                            <Form.Select size="lg" style={{ width: "40%", borderRadius: "0" }}>
+                        <ButtonGroup className="product-button-group">
+                            <Form.Select size="lg" className="product-quantity-select">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </Form.Select>
-                            <Button size="lg" onClick={() => addToCart({ userId: user._id, productId: id, price: product.price, image: product.pictures[0].url })}>
+                            <Button
+                                size="lg"
+                                className="product-add-to-cart-button"
+                                onClick={() =>
+                                    addToCart({
+                                        userId: user._id,
+                                        productId: id,
+                                        price: product.price,
+                                        image: product.pictures[0].url,
+                                    })
+                                }
+                            >
                                 Add to cart
                             </Button>
                         </ButtonGroup>
                     )}
                     {user && user.isAdmin && (
                         <LinkContainer to={`/product/${product._id}/edit`}>
-                            <Button size="lg">Edit Product</Button>
+                            <Button size="lg" className="product-edit-button">
+                                Edit Product
+                            </Button>
                         </LinkContainer>
                     )}
                     {isSuccess && <ToastMessage bg="info" title="Added to cart" body={`${product.name} is in your cart`} />}
                 </Col>
             </Row>
-            <div className="my-4">
-                <h2>Similar Products</h2>
-                <div className="d-flex justify-content-center align-items-center flex-wrap">
+            <div className="similar-products">
+                <h2 className="similar-products-title">Similar Products</h2>
+                <div className="similar-products-carousel">
                     <AliceCarousel mouseTracking items={similarProducts} responsive={responsive} controlsStrategy="alternate" />
                 </div>
             </div>
         </Container>
+
     );
 }
 

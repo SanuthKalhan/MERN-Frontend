@@ -84,8 +84,7 @@ function NewProduct() {
                                 <option disabled selected>
                                     -- Select One --
                                 </option>
-                                <option value="Vegetables">Vegetables</option>
-                                <option value="Fruits">Fruits</option>
+                                <option value="Vegetables & Fruits">Vegetables & Fruits</option>
                                 <option value="Egg_&_Meat">Egg & Meat</option>
                                 <option value="Dairy_Products">Dairy Products</option>
                             </Form.Select>

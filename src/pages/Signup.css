@@ -58,6 +58,7 @@
     font-weight: 400;
   }
   
+  .signup__from--container input[type="text"],
   .signup__from--container input[type="email"],
   .signup__from--container input[type="password"] {
     width: 100%;

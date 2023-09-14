@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'; 
 import { Link } from 'react-router-dom';
 import './Login.css';
+import { useLoginMutation } from "../services/appApi";
 
 function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  function handleSubmit() {}
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [login, { isError, isLoading, error }] = useLoginMutation();
+    function handleLogin(e) {
+        e.preventDefault();
+        login({ email, password });
+    }
 
   return (
     <div className='app-BG'>
@@ -15,7 +19,7 @@ function Login() {
             <Container>
             <Row>
                 <Col md={6} className="login__from--container">
-                <Form>
+                <Form onSubmit={handleLogin}>
                     <h1>User Login</h1>
                     <Form.Group>
                     <Form.Label>Email Address</Form.Label>
@@ -38,7 +42,7 @@ function Login() {
                     />
                     </Form.Group>
                     <Form.Group>
-                    <Button type="submit">Login</Button>
+                    <Button type="submit" disabled={isLoading}>Login</Button>
                     </Form.Group>
                     <p>
                     Don't have an account? <Link to="/signup">Sign Up</Link>
